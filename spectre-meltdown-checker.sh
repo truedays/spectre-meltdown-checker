@@ -329,7 +329,7 @@ try_decompress()
 			return 0
 		fi
 		pos=${pos%%:*}
-		tail -c+$pos "$5" | $3 > $vmlinuxtmp 2> /dev/null
+		{ tail -c+$pos "$5" | $3 > $vmlinuxtmp 2> /dev/null; } 
 		check_vmlinux "$vmlinuxtmp" && vmlinux=$vmlinuxtmp && return 0
 	done
 	return 1
